@@ -29,22 +29,7 @@ The notebook currently:
 - resizes images to `128 × 128` pixels; and
 - converts pixel values to PyTorch tensors in the range `[0, 1]`.
 
-Dataset files are not committed to this repository. Place the extracted data in the following structure:
-
-```text
-Data/
-└── T-LESS/
-    └── t-less_v2_train_primesense/
-        ├── 01/
-        │   └── rgb/
-        │       └── *.png
-        ├── 02/
-        │   └── rgb/
-        │       └── *.png
-        └── 03/
-            └── rgb/
-                └── *.png
-```
+Dataset files are not committed to this repository. 
 
 The T-LESS dataset is distributed separately and remains subject to its own terms and citation requirements.
 
@@ -98,31 +83,6 @@ total loss = reconstruction loss + β × KL-divergence
 
 The current configuration uses Adam with a learning rate of `1e-3`, a batch size of 32, and 50 training epochs. Reconstruction plots decode the latent mean rather than a random sample, producing stable comparisons between runs.
 
-## Requirements
-
-Python 3.10 or newer is recommended. A CUDA-capable GPU is optional but significantly reduces training time. The notebook automatically uses CUDA when PyTorch detects it and otherwise runs on the CPU.
-
-Main Python dependencies:
-
-- `jupyterlab`
-- `matplotlib`
-- `numpy`
-- `pandas`
-- `Pillow`
-- `torch`
-- `torchvision`
-
-Create an isolated environment and install the dependencies:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install jupyterlab matplotlib numpy pandas pillow torch torchvision
-```
-
-PyTorch installation can vary by operating system and CUDA version. Install the appropriate PyTorch build for the target machine when GPU acceleration is required.
-
 ## Running the notebook
 
 Clone the repository, prepare the T-LESS directory described above, and start Jupyter from the `Code` directory so the notebook's relative dataset path resolves correctly:
@@ -131,29 +91,6 @@ Clone the repository, prepare the T-LESS directory described above, and start Ju
 git clone git@github.com:omarabdesslem/Industrial-VAE.git
 cd Industrial-VAE/Code
 jupyter lab VAE.ipynb
-```
-
-Run the notebook cells in order. The main stages are:
-
-1. Load and inspect the datasets.
-2. Create the T-LESS `Dataset` and `DataLoader`.
-3. Initialize the convolutional VAE.
-4. train the model; and
-5. display training images beside their reconstructions.
-
-Training results can be saved under `Results/`. The current example output compares original samples against their VAE reconstructions.
-
-## Repository structure
-
-```text
-Industrial-VAE/
-├── Code/
-│   └── VAE.ipynb
-├── Data/                 # Local datasets; excluded from Git
-├── Results/              # Generated visualizations
-├── .gitignore
-├── LICENSE
-└── README.md
 ```
 
 ## Current limitations and future work
