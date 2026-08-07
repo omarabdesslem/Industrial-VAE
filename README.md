@@ -1,12 +1,16 @@
 # Industrial VAE
 
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.14+](https://img.shields.io/badge/python-3.14+-blue.svg)](https://www.python.org/downloads/)
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-orange.svg)](https://pytorch.org/)
 
 Industrial VAE is an exploratory computer-vision project for learning compact representations of industrial imagery with a convolutional variational autoencoder (VAE). The current work focuses on reconstructing object images from the T-LESS dataset and studying how much useful visual information can be retained in a regularized latent space.
 
-This repository is related to my research at the Paul Scherrer Institute (PSI). It is intended for research, experimentation, and visualization; it should not be interpreted as an official PSI software release or a production-ready inspection system.
+
+![Original T-LESS samples compared with VAE reconstructions](Results/output-original-vs-reconstructed.png)
+
+This repository is related to my research at the Paul Scherrer Institute (PSI). It is intended for training and visualization of VAEs.
 
 ## Project goals
 
